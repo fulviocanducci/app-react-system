@@ -2,11 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { Init, List } from "./Pages";
+import { useLogout } from "../../context";
 
 function Home() {
+  const handleLogout = useLogout();
   return (
     <Router>
-      <div>
+      <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand" href="index">
             Navbar
@@ -35,24 +37,28 @@ function Home() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="index">
+                <a className="nav-link" href="index" onClick={handleLogout}>
                   Sair
                 </a>
               </li>
             </ul>
           </div>
         </nav>
-        <div>
-          <Switch>
-            <Route path="/list">
-              <List />
-            </Route>
-            <Route path="/">
-              <Init />
-            </Route>
-          </Switch>
-        </div>
-      </div>
+      </header>
+      <main role="main">
+        <section className="jumbotron">
+          <div className="container">
+            <Switch>
+              <Route path="/list">
+                <List />
+              </Route>
+              <Route path="/">
+                <Init />
+              </Route>
+            </Switch>
+          </div>
+        </section>
+      </main>
     </Router>
   );
 }

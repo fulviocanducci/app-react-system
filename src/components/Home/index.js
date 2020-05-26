@@ -37,9 +37,12 @@ function Home() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="index" onClick={handleLogout}>
+                <button
+                  className="btn btn-link nav-link"
+                  onClick={handleLogout}
+                >
                   Sair
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -52,7 +55,7 @@ function Home() {
               <Route path="/list">
                 <List />
               </Route>
-              <Route path="/">
+              <Route path="/" exact>
                 <Init />
               </Route>
             </Switch>

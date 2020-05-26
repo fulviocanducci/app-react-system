@@ -1,5 +1,11 @@
 import React from "react";
 
+import Card from "../../Card";
+
 export default function Init() {
-  return <div>Inicial ....</div>;
+  return (
+    <Card title="Página inicial" subTitle="Informações da Página Inicial">
+      <div>Oi</div>
+    </Card>
+  );
 }
